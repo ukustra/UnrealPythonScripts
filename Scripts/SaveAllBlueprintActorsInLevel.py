@@ -16,11 +16,11 @@ for actor in level_actors:
     blueprint = unreal.BlueprintEditorLibrary.get_blueprint_asset(asset)
 
     if blueprint:
-        blueprint.modify()
-        #unreal.BlueprintEditorLibrary.compile_blueprint(blueprint)
-        actor_world.modify()
         package = actor_class.get_outermost()
         if package not in packages:
+            blueprint.modify()
+            # unreal.BlueprintEditorLibrary.compile_blueprint(blueprint)
+            actor_world.modify()
             packages.append(package)
 
     # A level might be dirty even if no blueprint actor has been found
